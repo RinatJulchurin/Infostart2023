@@ -1,6 +1,9 @@
 # Опыт использования оптимизированного механизма реструктуризации (v2) на базе размером 36 терабайт (дополнительные материалы).
 ## Содержание
 1. [Обработка для получения разницы индексов по данным 1С и СУБД](#epf)
+2. [Файл настроек технологического журнала для логирования запросов при реструктуризации v2](#logcfg)
+1. [Ошибки при реструктуризации v2 (приведен номер ошибки в 1С)](#issues)
+1. [Ветка на партнерском форуме 1С про неоптимальное удаление реквизита документа для PostgreSQL](#issue_delete)
 
 ## Обработка для получения разницы индексов по данным 1С и СУБД <a name="epf"></a>
 Обработка работает на сервере 1С под Windows используя COM-объект ADODB.
@@ -13,7 +16,7 @@
 ![РазницаИндексовИнфостарт.epf](./РазницаИндексовИнфостарт.epf)
 ![Обработка](./img/Обработка.png)
 
-## Файл настроек технологического журнала для логирования запросов при реструктуризации v2
+## Файл настроек технологического журнала для логирования запросов при реструктуризации v2 <a name="logcfg"></a>
 ![logcfg.xml](./logcfg.xml)
 
 Пример строк логов с запросом
@@ -21,7 +24,7 @@
 34:34.008000-0,SYSTEM,0,level=DEBUG,component=dmf,class=com._1c.dmf.internal.sqlframework.SqlConnection,line=,file=,threadId=1,message='Query started. Text query: UPDATE __alias1 WITH(TABLOCK) SET _Fld73_TYPE_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x01 ELSE __alias1._Fld73_TYPE END, _Fld73_RRRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000000000000000000000000000 ELSE __alias1._Fld73_RRRef END, _Fld73_RTRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000 ELSE __alias1._Fld73_RTRef END FROM _InfoRg72 AS __alias1'
 34:34.015000-0,SYSTEM,0,level=DEBUG,component=dmf,class=com._1c.dmf.internal.sqlframework.SqlConnection,line=,file=,threadId=1,message='Query was completed in 7 millis. Text query: UPDATE __alias1 WITH(TABLOCK) SET _Fld73_TYPE_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x01 ELSE __alias1._Fld73_TYPE END, _Fld73_RRRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000000000000000000000000000 ELSE __alias1._Fld73_RRRef END, _Fld73_RTRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000 ELSE __alias1._Fld73_RTRef END FROM _InfoRg72 AS __alias1'
 ```
-## Ошибки при реструктуризации v2 (приведен номер ошибки в 1С)
+## Ошибки при реструктуризации v2 (приведен номер ошибки в 1С) <a name="issues"></a>
 ### 60003139 Ошибка: Exception in thread "main" com._1c.dmf.comparator.ComparatorException: Конвертер com._1c.dmf.v8.converters.attributes.typedfield.TypedFieldConverter@6340e5f0 определил объект "Reference35.Fld38" как некорректный
 После реструктуризации с использованием оптимизированного механизма, если в объекте конфигурации, например, справочнике, нет данных и изменился только тип ссылочного реквизита, при попытке записи нового элемента происходит ошибка:
 
@@ -80,7 +83,7 @@
 
 Исправлена: "Технологическая платформа", версия 8.3.22.1603
 
-## Ветка на партнерском форуме 1С про неоптимальное удаление реквизита документа для PostgreSQL
+## Ветка на партнерском форуме 1С про неоптимальное удаление реквизита документа для PostgreSQL <a name="issue_delete"></a>
 "https://partners.v8.1c.ru/forum/topic/2053074#m_2053074"
 
 Некоторые подробности отличий механизмов для MS-SQL и PostgreSQL.
