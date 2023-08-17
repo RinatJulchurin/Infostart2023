@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns="http://v8.1c.ru/v8/tech-log">
+  <log location="C:\tech\Logs\DMF" history="24">
+    <event>
+      <eq property="Name" value="SYSTEM"/>
+    </event>
+    <event>
+      <eq property="Name" value="EXCP"/>
+    </event>
+    <property name="all"/>
+  </log>
+  <system level="debug" component="dmf"/>
+</config>
