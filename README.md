@@ -2,7 +2,7 @@
 ## Содержание
 1. [Обработка для получения разницы индексов по данным 1С и СУБД](#epf)
 2. [Файл настроек технологического журнала для логирования запросов при реструктуризации v2](#logcfg)
-1. [Ошибки при реструктуризации v2 (с номерами ошибок в 1С)](#issues)
+1. [Ошибки при реструктуризации v2 (номер ошибки, номера релизов с исправлением)](#issues)
 1. [Ветка на партнерском форуме 1С про неоптимальное удаление реквизита документа для PostgreSQL](#issue_delete)
 
 ## Обработка для получения разницы индексов по данным 1С и СУБД <a name="epf"></a>
@@ -24,7 +24,7 @@
 34:34.008000-0,SYSTEM,0,level=DEBUG,component=dmf,class=com._1c.dmf.internal.sqlframework.SqlConnection,line=,file=,threadId=1,message='Query started. Text query: UPDATE __alias1 WITH(TABLOCK) SET _Fld73_TYPE_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x01 ELSE __alias1._Fld73_TYPE END, _Fld73_RRRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000000000000000000000000000 ELSE __alias1._Fld73_RRRef END, _Fld73_RTRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000 ELSE __alias1._Fld73_RTRef END FROM _InfoRg72 AS __alias1'
 34:34.015000-0,SYSTEM,0,level=DEBUG,component=dmf,class=com._1c.dmf.internal.sqlframework.SqlConnection,line=,file=,threadId=1,message='Query was completed in 7 millis. Text query: UPDATE __alias1 WITH(TABLOCK) SET _Fld73_TYPE_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x01 ELSE __alias1._Fld73_TYPE END, _Fld73_RRRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000000000000000000000000000 ELSE __alias1._Fld73_RRRef END, _Fld73_RTRef_NO = CASE WHEN ((__alias1._Fld73_TYPE = 0x08) AND (__alias1._Fld73_RTRef = 0x00000047)) THEN 0x00000000 ELSE __alias1._Fld73_RTRef END FROM _InfoRg72 AS __alias1'
 ```
-## Ошибки при реструктуризации v2 (с номерами ошибок в 1С) <a name="issues"></a>
+## Ошибки при реструктуризации v2 (номер ошибки, номера релизов с исправлением) <a name="issues"></a>
 ### 60003139 Ошибка: Exception in thread "main" com._1c.dmf.comparator.ComparatorException: Конвертер com._1c.dmf.v8.converters.attributes.typedfield.TypedFieldConverter@6340e5f0 определил объект "Reference35.Fld38" как некорректный
 После реструктуризации с использованием оптимизированного механизма, если в объекте конфигурации, например, справочнике, нет данных и изменился только тип ссылочного реквизита, при попытке записи нового элемента происходит ошибка:
 
