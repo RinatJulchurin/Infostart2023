@@ -108,7 +108,7 @@ INNER JOIN sys.indexes AS __alias4 ON (__alias1.object_id = __alias4.object_id))
 
 ...
 
-INNER JOIN sys.filegroups AS __alias3 ON (__alias4.data_space_id = __alias3.data_space_id))
+INNER JOIN sys.filegroups AS __alias3 ON (</b>__alias4.data_space_id</b> = __alias3.data_space_id))
 
 Соединение по полю sys.indexes.data_space_id	только с таблицей описания файловых групп и внутреннее.
 
