@@ -104,16 +104,16 @@
 
 ...
 
-INNER JOIN sys.indexes AS __alias4 ON (__alias1.object_id = __alias4.object_id))
+INNER JOIN **sys.indexes AS __alias4** ON (__alias1.object_id = __alias4.object_id))
 
 ...
 
-INNER JOIN sys.filegroups AS __alias3 ON (**__alias4.data_space_id** = __alias3.data_space_id))
+**INNER JOIN** sys.filegroups AS __alias3 ON (**__alias4.data_space_id** = __alias3.data_space_id))
 
-Соединение по полю sys.indexes.data_space_id	только с таблицей описания файловых групп и внутреннее.
+Соединение по полю **sys.indexes.data_space_id**	только с таблицей описания файловых групп и внутреннее.
 
-Поле sys.indexes.data_space_id называется Идентификатор пространства данных этого индекса. 
+Поле **sys.indexes.data_space_id** называется Идентификатор пространства данных этого индекса. 
 
-Пространством данных может быть или файловая группа, или схема секционирования.
+Пространством данных может быть или файловая группа, **или схема секционирования**.
 
 В результате секционированные таблицы, для которых указана схема секционирования, а не файловая группа, исключаются из результата запроса.
